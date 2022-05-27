@@ -26,12 +26,18 @@ const app = async (yargsObj) => {
         await listMovie()
             
 
-
-
 //update a movie
     } else if (yargsObj.update) {
+       const response = await Movie.findOneAndUpdate(
+           
+        {title:yargsObj.title},
         
+        {$set: {
+            title: yargsObj.newTitle,
+        }},
+        {new:true});
 
+        console.log(response);
 
 
 //delete a movie
