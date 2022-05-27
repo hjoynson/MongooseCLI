@@ -22,3 +22,5 @@ const movieSchema = new mongoose.Schema({
 //model can be enforced onto database
 
 const Movie = mongoose.model("Movie", movieSchema);
+
+module.exports = Movie;
