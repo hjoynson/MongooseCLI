@@ -9,6 +9,7 @@ const {
     listMovie
 
 } = require("./movie/functions.js"); //connects the functions
+const Movie = require("./movie/model.js");
 
 
 
@@ -19,15 +20,26 @@ const app = async (yargsObj) => {
         //add movie to database from yargs input
         await addMovie({title: yargsObj.title, actor: yargsObj.actor });
 
+
+//find movies
     } else if (yargsObj.list) {
         await listMovie()
-            //find movies
-    } else if (yargsObj.update) {
-        //update a movie
+            
 
-    } else if (yargsObj.delete) {
-        //delete a movie
+
+
+//update a movie
+    } else if (yargsObj.update) {
         
+
+
+
+//delete a movie
+    } else if (yargsObj.delete) {
+       const response = await Movie.deleteOne(yargsObj);
+        console.log(response);
+        
+
     } else {
         console.log("Incorrect command");
     }
