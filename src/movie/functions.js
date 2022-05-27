@@ -1,6 +1,6 @@
-const Movie = require("./model");
+const Movie = require("./model.js");
 
-exports.addMovie = async () => {
+exports.addMovie = async (movieObj) => {
     //needs to be async because its outside the application
     //interacting outside application, needs to await
     try {
@@ -10,4 +10,4 @@ exports.addMovie = async () => {
     } catch (error) {
         console.log(error)
     }
-}
+};
