@@ -12,8 +12,6 @@ const {
 const Movie = require("./movie/model.js");
 
 
-
-
 //add movie
 const app = async (yargsObj) => {
     if (yargsObj.add) {
@@ -42,7 +40,7 @@ const app = async (yargsObj) => {
 
 //delete a movie
     } else if (yargsObj.delete) {
-       const response = await Movie.deleteOne(yargsObj);
+       const response = await Movie.deleteOne({title: yargsObj.title});
         console.log(response);
         
 
